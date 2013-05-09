@@ -48,16 +48,14 @@ public class Client {
 		System.out.println("intList:    " + intListProp);
 		System.out.println("changeTest: " + changeTestValueProp);
 
-		confManager.addChangeListener("changeTestValue2", new ConfManager.PropertyChangeHandler<String>() {
+		confManager.addChangeListener("changeTestValue2", new ConfManager.PropertyChangeHandler<Integer>() {
 			@Override
-			public void handle(String newValue) {
+			public void handle(Integer newValue) {
 				System.out.println("Received new value: " + newValue);
 			}
 		});
 
-		while (true) {
-			Thread.sleep(14000);
-		}
+		Thread.sleep(60000);
 	}
 
 }

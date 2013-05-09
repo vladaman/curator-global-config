@@ -20,6 +20,7 @@ Central configuration repository client using Zookeeper.  Build on top of Zookee
     // Configuration Manager Initialization
     ConfManager confManager = ConfManager.getInstance();
     confManager.setDataFormat(CONF_DATA_FORMAT.JSON); // assumes data to be in JSON
+    confManager.setZookeeperPath("/sample-path"); // optional to set correct global path
     confManager.setClient(zooClient);
     
     // Read Properties (String, Integers, Arrays)
