@@ -1,17 +1,17 @@
 # Globally Centralized Configuration (Java)
 
-Central configuration repository client using Zookeeper.  Build on top of Zookeeper using Curator Framework https://github.com/Netflix/curator
+Central configuration repository client using Zookeeper. Build on top of Zookeeper using Curator Framework https://github.com/Netflix/curator
 
 ### General Overview
 
-* Java Application connects to Zookeeper server using Curator Framework
+* Java Application connects to set of Zookeeper servers using Curator Framework
 * Fetches recent configuration settings (property file) and maintains local copy in HashMap for quick lookups
 * Client watches znode for changes and updates local HashMap when configuration changes
-* Optionally client may add listener on each configuration key to perform actions
+* Optionally client may add listeners on each configuration key to handle onChange events
 
 ### Example
 
-    // Zookeeper CuratorFramework Connetions
+    // Zookeeper CuratorFramework Connections
     CuratorFramework zooClient = CuratorFrameworkFactory.builder().namespace("curatordemo")
 				.connectString("localhost:2181").retryPolicy(new ExponentialBackoffRetry(1000, 3))
 				.connectionTimeoutMs(30000).build();
